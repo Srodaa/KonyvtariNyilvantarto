@@ -14,7 +14,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="konyvkereso" HorizontalAlignment="Left" Height="23" Margin="34,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" TextChanged="konyvkereso_TextChanged"/>
                 <Label Content="Kereső:" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="131"/>
-                <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="300" Margin="34,69,0,0" VerticalAlignment="Top" Width="732" AutoGenerateColumns="False">
+                <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="292" Margin="34,69,0,0" VerticalAlignment="Top" Width="732" AutoGenerateColumns="False">
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -34,13 +34,19 @@
                         <DataGridTextColumn Header="Kölcsönözhető?" Binding="{Binding KKolcsonzes}" Width ="*" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button x:Name="hozzaad" Content="Új könyv hozzáadása" HorizontalAlignment="Left" FontWeight="SemiBold" Margin="782,88,0,0" VerticalAlignment="Top" Width="150" Height="26" Click="hozzaad_Click"  />
-                <TextBox x:Name="konyvid" HorizontalAlignment="Left" Height="23" Margin="791,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
-                <TextBox x:Name="konyvcim" HorizontalAlignment="Left" Height="23" Margin="791,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
-                <TextBox x:Name="konyviro" HorizontalAlignment="Left" Height="23" Margin="791,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
-                <TextBox x:Name="konyvkiadasdatuma" HorizontalAlignment="Left" Height="23" Margin="791,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
-                <TextBox x:Name="konyvkiado" HorizontalAlignment="Left" Height="23" Margin="791,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
-                <Button x:Name="torles" Content="Sor törlése" HorizontalAlignment="Left" Margin="782,319,0,0" FontWeight="SemiBold" VerticalAlignment="Top" Width="150" Height="26" Click="torles_Click"/>
+                <Button x:Name="hozzaad" Content="Új könyv hozzáadása" HorizontalAlignment="Left" FontWeight="SemiBold" Margin="782,69,0,0" VerticalAlignment="Top" Width="150" Height="26" Click="hozzaad_Click"  />
+                <TextBox x:Name="konyvid" HorizontalAlignment="Left" Height="23" Margin="791,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
+                <TextBox x:Name="konyvcim" HorizontalAlignment="Left" Height="23" Margin="791,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
+                <TextBox x:Name="konyviro" HorizontalAlignment="Left" Height="23" Margin="791,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
+                <TextBox x:Name="konyvkiadasdatuma" HorizontalAlignment="Left" Height="23" Margin="791,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
+                <TextBox x:Name="konyvkiado" HorizontalAlignment="Left" Height="23" Margin="791,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
+                <Button x:Name="torles" Content="Sor törlése" HorizontalAlignment="Left" Margin="472,367,0,0" FontWeight="Bold" VerticalAlignment="Top" Width="150" Height="26" Click="torles_Click" FontSize="14"/>
+                <Label Content="Azonosító (ID):" HorizontalAlignment="Left" Margin="766,100,0,0" VerticalAlignment="Top"/>
+                <Label Content="Szerző:" HorizontalAlignment="Left" Margin="766,149,0,0" VerticalAlignment="Top"/>
+                <Label Content="Könyv címe:" HorizontalAlignment="Left" Margin="766,198,0,0" VerticalAlignment="Top"/>
+                <Label Content="Kiadás éve:" HorizontalAlignment="Left" Margin="766,247,0,0" VerticalAlignment="Top"/>
+                <Label Content="Kiadó:" HorizontalAlignment="Left" Margin="766,296,0,0" VerticalAlignment="Top"/>
+                <Label Content="Kijelölt sor törlés:" HorizontalAlignment="Left" Margin="325,363,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
 
             </Grid>
         </TabItem>
@@ -93,6 +99,17 @@
                         <DataGridTextColumn Header="Kölcsönzés vége" Binding="{Binding KolcsonzesVege }" Width="*" />
                     </DataGrid.Columns>
                 </DataGrid>
+                <Button x:Name="KolcsonzesHozzadasa" Content="Hozzáadás" HorizontalAlignment="Left" Margin="787,339,0,0" VerticalAlignment="Top" Width="145" Height="30" FontWeight="Bold" FontSize="16" Click="KolcsonzesHozzadasa_Click" />
+                <TextBox x:Name="kolcsonzesAzonosito" HorizontalAlignment="Left" Height="23" Margin="799,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="EmberID" HorizontalAlignment="Left" Height="23" Margin="799,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="KonyvID" HorizontalAlignment="Left" Height="23" Margin="799,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="KolcsKezd" HorizontalAlignment="Left" Height="23" Margin="799,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="KolcsVeg" HorizontalAlignment="Left" Height="23" Margin="799,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Kölcsönzési azonosító:" HorizontalAlignment="Left" Margin="771,69,0,0" VerticalAlignment="Top"/>
+                <Label Content="Ember ID:" HorizontalAlignment="Left" Margin="771,123,0,0" VerticalAlignment="Top"/>
+                <Label Content="Könyv ID:" HorizontalAlignment="Left" Margin="771,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.423"/>
+                <Label Content="Kölcsönzés kezdete:" HorizontalAlignment="Left" Margin="771,231,0,0" VerticalAlignment="Top"/>
+                <Label Content="Kölcsönzés vége:" HorizontalAlignment="Left" Margin="771,280,0,0" VerticalAlignment="Top"/>
             </Grid>
         </TabItem>
     </TabControl>

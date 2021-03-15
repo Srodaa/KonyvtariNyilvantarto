@@ -103,5 +103,27 @@ namespace KonyvtariNyilvantarto
             AKonyvek.Add(Uj);
             datagrid.ItemsSource = AKonyvek;
         }
+
+        private void KolcsonzesHozzadasa_Click(object sender, RoutedEventArgs e)
+        {
+            var kolcsonzeshozzadas = AKonyvek.Where(x => x.KIro.StartsWith(konyvkereso.Text) || x.KKonyvCime.StartsWith(konyvkereso.Text) || x.KKiadasEve.StartsWith(konyvkereso.Text) || x.KKiado.StartsWith(konyvkereso.Text));
+            datagrid.ItemsSource = kolcsonzeshozzadas;
+            Kolcsonzes Uj = new Kolcsonzes("a");
+            try
+            {
+                Uj.KolcsonzesEID = Akolcsonzes.Count + 1;
+                Uj.KolcsonzesID = int.Parse(kolcsonzesAzonosito.Text);
+                Uj.KolcsonzesKID = int.Parse(KonyvID.Text);
+                Uj.KolcsonzesKezdete = KolcsKezd.Text;
+                Uj.KolcsonzesVege = KolcsVeg.Text;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("A megadott adatok helytelenek.");
+
+            }
+            Akolcsonzes.Add(Uj);
+            datagrid.ItemsSource = Akolcsonzes;
+        }
     }
 }
