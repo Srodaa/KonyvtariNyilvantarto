@@ -55,7 +55,7 @@
                 <Grid.ColumnDefinitions>
 
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="EMBEREKdatagrid" HorizontalAlignment="Left" Height="300" Margin="34,69,0,0" VerticalAlignment="Top" Width="732" AutoGenerateColumns="False">
+                <DataGrid x:Name="EMBEREKdatagrid" HorizontalAlignment="Left" Height="293" Margin="34,69,0,0" VerticalAlignment="Top" Width="732" AutoGenerateColumns="False">
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -74,6 +74,21 @@
                         <DataGridTextColumn Header="Utca" Binding="{Binding DBUtca}" Width="*" />
                     </DataGrid.Columns>
                 </DataGrid>
+                <Button x:Name="emberHozzadas" Content="Hozzáadás" HorizontalAlignment="Left" Margin="787,339,0,0" VerticalAlignment="Top" Width="145" Height="30" FontWeight="Bold" FontSize="16" Click="emberHozzadas_Click" />
+                <TextBox x:Name="emberNev" HorizontalAlignment="Left" Height="23" Margin="799,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="emberSzulDat" HorizontalAlignment="Left" Height="23" Margin="799,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="emberIranyitoSzam" HorizontalAlignment="Left" Height="23" Margin="799,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="emberVaros" HorizontalAlignment="Left" Height="23" Margin="799,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="EmberUtca" HorizontalAlignment="Left" Height="23" Margin="799,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Tag neve:" HorizontalAlignment="Left" Margin="771,69,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="0.565,0.5"/>
+                <Label Content="Születési dátuma:" HorizontalAlignment="Left" Margin="771,118,0,0" VerticalAlignment="Top" Width="126"/>
+                <Label Content="Irányító száma:" HorizontalAlignment="Left" Margin="771,167,0,0" VerticalAlignment="Top" Width="105"/>
+                <Label Content="Városa:" HorizontalAlignment="Left" Margin="771,216,0,0" VerticalAlignment="Top" Width="105"/>
+                <Label Content="Utca:" HorizontalAlignment="Left" Margin="771,265,0,0" VerticalAlignment="Top" Width="69"/>
+                <Label Content="Kereső:" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" Width="131"/>
+                <TextBox x:Name="emberkereso" HorizontalAlignment="Left" Height="23" Margin="34,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" TextChanged="emberkereso_TextChanged" />
+                <Label Content="Kijelölt sor törlés:" HorizontalAlignment="Left" Margin="325,363,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                <Button x:Name="emberTorles" Content="Sor törlése" HorizontalAlignment="Left" Margin="472,367,0,0" FontWeight="Bold" VerticalAlignment="Top" Width="150" Height="26"  FontSize="14" Click="emberTorles_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Kölcsönzések" Background="Aquamarine">
@@ -81,7 +96,7 @@
                 <Grid.ColumnDefinitions>
 
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="KOLCSONZESdatagrid" HorizontalAlignment="Left" Height="300" Margin="34,69,0,0" VerticalAlignment="Top" Width="732" AutoGenerateColumns="False">
+                <DataGrid x:Name="KOLCSONZESdatagrid" HorizontalAlignment="Left" Height="294" Margin="34,69,0,0" VerticalAlignment="Top" Width="732" AutoGenerateColumns="False">
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -110,6 +125,8 @@
                 <Label Content="Könyv ID:" HorizontalAlignment="Left" Margin="771,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.423"/>
                 <Label Content="Kölcsönzés kezdete:" HorizontalAlignment="Left" Margin="771,231,0,0" VerticalAlignment="Top"/>
                 <Label Content="Kölcsönzés vége:" HorizontalAlignment="Left" Margin="771,280,0,0" VerticalAlignment="Top"/>
+                <Label Content="Kijelölt sor törlés:" HorizontalAlignment="Left" Margin="325,363,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                <Button x:Name="kolcsonzesTorles" Content="Sor törlése" HorizontalAlignment="Left" Margin="472,367,0,0" FontWeight="Bold" VerticalAlignment="Top" Width="150" Height="26" FontSize="14" Click="kolcsonzesTorles_Click"/>
             </Grid>
         </TabItem>
     </TabControl>

@@ -93,6 +93,8 @@ namespace KonyvtariNyilvantarto
 
         private void hozzaad_Click(object sender, RoutedEventArgs e)
         {
+            var hozzaad = AKonyvek.Where(x => x.KKonyvCime.StartsWith(konyvkereso.Text) || x.KIro.StartsWith(konyvkereso.Text) || x.KKiadasEve.StartsWith(konyvkereso.Text) || x.KKiado.StartsWith(konyvkereso.Text));
+            datagrid.ItemsSource = hozzaad;
             Konyvek Uj = new Konyvek("");
             Uj.KKonyvID = AKonyvek.Count + 1;
             Uj.KIro = konyviro.Text;
@@ -107,7 +109,7 @@ namespace KonyvtariNyilvantarto
         private void KolcsonzesHozzadasa_Click(object sender, RoutedEventArgs e)
         {
             var kolcsonzeshozzadas = AKonyvek.Where(x => x.KIro.StartsWith(konyvkereso.Text) || x.KKonyvCime.StartsWith(konyvkereso.Text) || x.KKiadasEve.StartsWith(konyvkereso.Text) || x.KKiado.StartsWith(konyvkereso.Text));
-            datagrid.ItemsSource = kolcsonzeshozzadas;
+            KOLCSONZESdatagrid.ItemsSource = kolcsonzeshozzadas;
             Kolcsonzes Uj = new Kolcsonzes("a");
             try
             {
@@ -123,7 +125,58 @@ namespace KonyvtariNyilvantarto
 
             }
             Akolcsonzes.Add(Uj);
-            datagrid.ItemsSource = Akolcsonzes;
+            KOLCSONZESdatagrid.ItemsSource = Akolcsonzes;
+        }
+
+        private void kolcsonzesTorles_Click(object sender, RoutedEventArgs e)
+        {
+            KOLCSONZESdatagrid.ItemsSource = Akolcsonzes;
+            var kolcsonzesTorles = KOLCSONZESdatagrid;
+            if (kolcsonzesTorles.SelectedIndex >= 0)
+            {
+                Akolcsonzes.RemoveAt(kolcsonzesTorles.SelectedIndex);
+                kolcsonzesTorles.Items.Refresh();
+            }
+        }
+
+        private void emberkereso_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (emberkereso.Text == "")
+            {
+                EMBEREKdatagrid.ItemsSource = ATagok;
+            }
+            else
+            {
+                var filtered = ATagok.Where(x => x.DBNev.StartsWith(emberkereso.Text) || x.DBIranyitoszam.StartsWith(emberkereso.Text) || x.DBVaros.StartsWith(emberkereso.Text) || x.DBUtca.StartsWith(emberkereso.Text));
+
+                EMBEREKdatagrid.ItemsSource = filtered;
+            }
+        }
+
+        private void emberHozzadas_Click(object sender, RoutedEventArgs e)
+        {
+            var emberhozzaad = AKonyvek.Where(x => x.KIro.StartsWith(emberkereso.Text) || x.KKonyvCime.StartsWith(emberkereso.Text) || x.KKiadasEve.StartsWith(emberkereso.Text) || x.KKiado.StartsWith(emberkereso.Text));
+            EMBEREKdatagrid.ItemsSource = emberhozzaad;
+            DemeterBela UjTAG = new DemeterBela("");
+            UjTAG.DBID= ATagok.Count + 1;
+            UjTAG.DBNev = emberNev.Text;
+            UjTAG.DBSzuletesDatuma= emberSzulDat.Text;
+            UjTAG.DBIranyitoszam = emberIranyitoSzam.Text;
+            UjTAG.DBVaros= emberVaros.Text;
+            UjTAG.DBUtca= EmberUtca.Text;
+            ATagok.Add(UjTAG);
+            EMBEREKdatagrid.ItemsSource = ATagok;
+        }
+
+        private void emberTorles_Click(object sender, RoutedEventArgs e)
+        {
+            EMBEREKdatagrid.ItemsSource = ATagok;
+            var torles = EMBEREKdatagrid;
+            if (torles.SelectedIndex >= 0)
+            {
+                ATagok.RemoveAt(torles.SelectedIndex);
+                torles.Items.Refresh();
+            }
         }
     }
 }
